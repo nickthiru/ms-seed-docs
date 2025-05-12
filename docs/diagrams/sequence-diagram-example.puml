@@ -1,0 +1,11 @@
+@startuml  
+actor Agent  
+participant "Agent Servicing" as AS  
+participant "Reservations API" as rAPI  
+participant "reservationCRUD" as rCRUD  
+
+AS -> rAPI: checkRes(reservationId)  
+rAPI -> rCRUD: reserve(data)  
+rCRUD --> rAPI: success/failure  
+rAPI --> AS: confirmation  
+@enduml  
